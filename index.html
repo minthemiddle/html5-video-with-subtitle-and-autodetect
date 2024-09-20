@@ -18,6 +18,13 @@
         <p id="language">Loading language...</p>
     </div>
     
+    <video style="width: 50%;" controls>
+      <source src="video.mp4" type="video/mp4">
+      <track label="English" kind="subtitles" srclang="en" src="subtitles-en.vtt" default>
+      <!-- <track label="Español" kind="subtitles" srclang="es" src="subtitles-es.vtt"> -->
+      Your browser does not support the video tag.
+    </video>
+    
 
     <script type="module">
         const getBrowserLanguage = () => {
