@@ -16,7 +16,7 @@ It uses a video from B2B Platform europages.com as an example.
 
 ### How to Use
 
-1. **Open the Video Player**: Simply open the `index.html` file in your web browser.
+1. **Open the Video Player**: Start a web browser (e.g. `php -S localhost:8003`, needed due to CORS) and open the `index.html` file in your web browser.
 2. **Play the Video**: The video will start playing automatically.
 3. **Subtitles**: The appropriate subtitle track will be displayed based on your browser's language settings. If your language is not supported, English subtitles will be shown.
 
