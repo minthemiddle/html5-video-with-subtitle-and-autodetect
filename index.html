@@ -21,7 +21,11 @@
     <video style="width: 50%;" controls>
       <source src="video.mp4" type="video/mp4">
       <track label="English" kind="subtitles" srclang="en" src="subtitles-en.vtt" default>
-      <!-- <track label="Español" kind="subtitles" srclang="es" src="subtitles-es.vtt"> -->
+      <track label="Deutsch" kind="subtitles" srclang="de" src="subtitles-de.vtt">
+      <track label="Français" kind="subtitles" srclang="fr" src="subtitles-fr.vtt">
+      <track label="Türkçe" kind="subtitles" srclang="tr" src="subtitles-tr.vtt">
+      <track label="Español" kind="subtitles" srclang="es" src="subtitles-es.vtt">
+      <track label="Ελληνικά" kind="subtitles" srclang="el" src="subtitles-el.vtt">
       Your browser does not support the video tag.
     </video>
     
@@ -45,6 +49,26 @@
         document.addEventListener('DOMContentLoaded', () => {
             const language = getBrowserLanguage();
             displayBrowserLanguage(language);
+
+            window.addEventListener('load', function() {
+                var video = document.querySelector('video');
+                var tracks = video.textTracks;
+                var userLang = navigator.language || navigator.userLanguage; 
+                var availableLanguages = ['de', 'fr', 'tr', 'es', 'el'];
+                var userLangPrefix = userLang.split('-')[0];
+
+                if (!availableLanguages.includes(userLangPrefix)) {
+                    userLangPrefix = 'en';
+                }
+
+                for (var i = 0; i < tracks.length; i++) {
+                    if (tracks[i].language === userLangPrefix) {
+                        tracks[i].mode = 'showing';
+                    } else {
+                        tracks[i].mode = 'hidden';
+                    }
+                }
+            });
         });
 
         // You can also export the functions if needed
