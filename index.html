@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Language</title>
+    <style>
+    html, body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+    .center {
+        text-align: center;
+    }
+    </style>
+</head>
+<body class="center">
+    <div class="center">
+        <p id="language">Loading language...</p>
+    </div>
+    
+
+    <script type="module">
+        const getBrowserLanguage = () => {
+            return navigator.language || navigator.userLanguage;
+        };
+
+        const language = getBrowserLanguage();    
+
+        const displayBrowserLanguage = (language) => {
+            console.log(`The browser language is: ${language}`);
+            
+            // Update the H2 element with the language
+            const languageElement = document.getElementById('language');
+            languageElement.textContent = `The browser language is: ${language}`;
+        };
+
+        // Call the function when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const language = getBrowserLanguage();
+            displayBrowserLanguage(language);
+        });
+
+        // You can also export the functions if needed
+        export { getBrowserLanguage, displayBrowserLanguage };
+    </script>
+</body>
+</html>
