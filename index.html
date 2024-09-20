@@ -55,7 +55,7 @@
                 var tracks = video.textTracks;
                 var userLang = navigator.language || navigator.userLanguage; 
                 var availableLanguages = ['de', 'fr', 'tr', 'es', 'el'];
-                var userLangPrefix = userLang.split('-')[0];
+                var userLangPrefix = userLang.split('-')[0].toLowerCase();
 
                 if (!availableLanguages.includes(userLangPrefix)) {
                     userLangPrefix = 'en';
